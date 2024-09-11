@@ -1,0 +1,6 @@
+docker build -t cluster-base -f base.Dockerfile .
+docker build --build-arg spark_version="3.4.0" --build-arg hadoop_version="3" -f spark-base.Dockerfile -t spark-base .
+docker build -f master.Dockerfile -t spark-master .
+docker build -f worker.Dockerfile -t spark-worker .
+docker build --build-arg spark_version="3.4.0" --build-arg jupyterlab_version="3.6.3" -f jupyter.Dockerfile -t jupyterlab .
+
